@@ -1,15 +1,19 @@
-package ru.career;
+package ru.career.twopoints;
 
 /*
- * */
+Given an integer array nums sorted in increasing order,
+return an array of the squares of each number sorted in increasing order.
 
+Решение:
+Окно снаружи внутрь.
+Складываем большую границу в результат и двигаем эту сторону
+
+
+*/
 //[-4, -1, 0, 3, 10] | [0, 1, 9, 16, 100]
 public class _977SquaresOfASortedArray {
     public int[] sortedSquares(int[] nums) {
         var result = new int[nums.length];
-
-//        var res = new LinkedList<Integer>();
-
 
         var l = 0;
         var r = nums.length - 1;
@@ -20,13 +24,11 @@ public class _977SquaresOfASortedArray {
             if (left > right) {
                 result[position] = left;
                 position--;
-//                res.addFirst(left);
                 if (l == r) break;
                 l++;
             } else {
                 result[position] = right;
                 position--;
-//                res.addFirst(right);
                 if (l == r) break;
                 r--;
             }

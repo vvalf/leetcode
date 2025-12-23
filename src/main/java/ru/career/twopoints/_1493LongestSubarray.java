@@ -4,6 +4,10 @@ package ru.career.twopoints;
 Given a binary array nums, you should delete one element from it.
 Return the size of the longest non-empty subarray containing only 1's in the resulting array.
 Return 0 if there is no such subarray.
+        input                       | expResult
+        [1, 1, 0, 1]                | 3
+        [1, 1, 0, 1, 0, 1, 1, 0, 1] | 3
+        [0, 1, 1, 1, 0, 1, 1, 0, 1] | 5
 */
 public class _1493LongestSubarray {
 
@@ -14,14 +18,10 @@ public class _1493LongestSubarray {
         int max = 0;
 
         for (int right = 0; right < nums.length; right++) {
-            if (nums[right] == 0) {
-                zeros++;
-            }
+            if (nums[right] == 0) zeros++;
 
             while (zeros > 1) {
-                if (nums[left] == 0) {
-                    zeros--;
-                }
+                if (nums[left] == 0) zeros--;
                 left++;
             }
 
@@ -30,6 +30,10 @@ public class _1493LongestSubarray {
 
         return max;
     }
+
+//    Еще можно решить через Dynamic Programming
+
+
 
 //    Запутался я тут пипец
     public int longestSubarrayMy(int[] nums) {

@@ -1,6 +1,6 @@
 package ru.career
 
-
+import ru.career.twopoints._977SquaresOfASortedArray
 import spock.lang.Specification
 import spock.lang.Unroll
 
